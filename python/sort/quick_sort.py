@@ -11,20 +11,16 @@ for x in range(1, data_len + 1):
 
 def quick_sort(data_in, start, end):
     mid = 0
-
     if start < end:
         mid = partition(data_in, start, end)
         quick_sort(data_in, start, mid -1)
         quick_sort(data_in, mid + 1, end)
-
 def partition(data, start, end):
     index = data[start]
 
     while (start < end):
         if index <= data[start + 1]:
-            tmp = data[end]
-            data[end] = data[start + 1]
-            data[start + 1] = tmp
+            data[start + 1],data[end] = data[end],data[start + 1]
             end = end - 1
         else:
             data[start] = data[start + 1]
